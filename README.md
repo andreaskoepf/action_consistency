@@ -6,18 +6,6 @@ A simple action conditioned MLP auto-encoder is used. Actions are mapped (state-
 
 The action-space consists of 5 discrete actions: N, S, W, E and stay (invalid actions are replaced by stay, e.g. when agent would leave grid).
 
-To directly visualize the latent space the bottleneck-layer of the auto-encoder is 2D.
-
-Initially the model has no information about the meaning of different actions or how input patterns relate to each other.
-
-For each action a fixed latent space offset is learned (independent of the source position) which is added to the 2D latent-encoding of the encoder to 'predict' the destination position.
-
-
-## Results
-
-It works to some extend but was more brittle than I had expected. The code was tested for input grids up to 6x6. For larger inputs a different model would be required (it did not immediately work when grid is set to 8x8).
-
-
 ```
 Example:
 
@@ -43,13 +31,25 @@ Target:
 [0., 0., 0., 0., 0., 0.]
 ```
 
+To directly visualize the latent space the bottleneck-layer of the auto-encoder is 2D.
+
+Initially the model has no information about the meaning of different actions or how input patterns relate to each other.
+
+For each action a fixed latent space offset is learned (independent of the source position) which is added to the 2D latent-encoding of the encoder to 'predict' the destination position.
+
+
+## Results
+
+It works to some extend but was more brittle than I had expected. The code was tested for input grids up to 6x6. For larger inputs a different model would be required (it did not immediately work when grid is set to 8x8).
+
+
 ## Latent space during training
 
 The animated GIFs show plots of the 2D latents during training for all input grid positions.
 
-<img src="output1.gif" width="200" />
-<img src="output3.gif" width="200" />
-<img src="output4.gif" width="200" />
-<img src="output5.gif" width="200" />
-<img src="output6.gif" width="200" />
-<img src="output7.gif" width="200" />
+<img src="./results/output1.gif" width="500" />
+<img src="./results/output3.gif" width="500" />
+<img src="./results/output4.gif" width="500" />
+<img src="./results/output5.gif" width="500" />
+<img src="./results/output6.gif" width="500" />
+<img src="./results/output7.gif" width="500" />
